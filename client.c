@@ -94,7 +94,7 @@ int main(int argc, char **argv){
 
   sprintf(aux,"%d",num1); // convertim el nostre valor enter a una taula de caràcters ; //codifiquem el primer número 
 
- sprintf(buffer2,"%s %d",aux,num2); // Afegim un espai i el segon numero
+ sprintf(buffer2,"%s %d\0",aux,num2); // Afegim un espai i el segon numero
 
   //Enviem el paquet 
 

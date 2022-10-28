@@ -103,21 +103,22 @@ int main( ){
     int separacio = 0;
     while (buffer[i]!='\0')
     {
-        if(prim!=0 && buffer[i] == ' '){
+        if(buffer[i] == ' '){
             int desfase = i;
-            for(int j = i-1; j > 0; j--){
+            for(int j = i-1; j >= 0; j--){
                 prim += (buffer[j]-'0')*pow(10,i-j-1);
+                
             }
             separacio = i;
         }
-        i++;
+      i++;
     }
     for(int j = i-1; j > separacio; j--){
                 segon += (buffer[j]-'0')*pow(10,i-j-1);
     }
 
       int resposta = -1; //resultat a retornar 
-
+        
       if(prim>=0&&prim<=99&&segon>=0&&segon<=99){ 
 
         resposta = prim*segon; //fem el producte dels nombres si estan al rang indicat 
