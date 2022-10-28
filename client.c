@@ -98,7 +98,7 @@ int main(int argc, char **argv){
     sprintf(buffer,"%s %d",aux,num2); // Afegim un espai i el segon numero
 
     //Enviem el paquet 
-
+  printf("Enviat %s",buffer);
     sendto(s, buffer, strlen(buffer), 0, (struct sockaddr*)&adr, sizeof(adr)); 
     //Esperem la resporta del servidor 
 
