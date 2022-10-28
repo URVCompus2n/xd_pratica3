@@ -33,7 +33,13 @@ typedef struct{
   int num2;
   int resposta;
 }test_t;
-
+void neteja_taula(char array[]){
+  int i=0;
+  for(i=0;i<strlen(array);i++)
+  {
+      array[i] = 0;
+  }
+}
 int main(int argc, char **argv){ 
 
  
@@ -120,10 +126,3 @@ int main(int argc, char **argv){
   return 0; 
 
 } 
-void neteja_taula(char array[]){
-  int i=0;
-  for(i=0;i<strlen(array);i++)
-  {
-      array[i] = 0;
-  }
-}
