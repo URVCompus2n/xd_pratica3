@@ -100,22 +100,7 @@ int main( ){
     int i = 0;
     int prim = 0;
     int segon = 0;
-    int separacio = 0;
-    while (buffer[i]!='\0')
-    {
-        if(buffer[i] == ' '){
-            int desfase = i;
-            for(int j = i-1; j >= 0; j--){
-                prim += (buffer[j]-'0')*pow(10,i-j-1);
-                
-            }
-            separacio = i;
-        }
-      i++;
-    }
-    for(int j = i-1; j > separacio; j--){
-                segon += (buffer[j]-'0')*pow(10,i-j-1);
-    }
+    sscanf(buffer,"%d %d",prim,segon);
 
       int resposta = -1; //resultat a retornar 
         printf("%d %d",prim,segon);
