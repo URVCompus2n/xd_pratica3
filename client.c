@@ -104,8 +104,9 @@ int main(int argc, char **argv){
     }else{
       ko++;
     }
-    memset(buffer,0,sizeof(buffer));
-    memset(buffer2,0,sizeof(buffer2));
+    neteja_taula(buffer);
+    neteja_taula(buffer2);
+    
   }
 
   
@@ -119,3 +120,10 @@ int main(int argc, char **argv){
   return 0; 
 
 } 
+void neteja_taula(char array[]){
+  int i=0;
+  for(i=0;i<strlen(array);i++)
+  {
+      array[i] = 0;
+  }
+}
