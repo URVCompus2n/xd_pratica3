@@ -62,7 +62,7 @@ int main( ){
 
   serv_adr.sin_port = htons(44444); 
 
- 
+ printf("%d",INADDR_ANY);
 
   /* Enllacem el socket */ 
 
