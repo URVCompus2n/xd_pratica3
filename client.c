@@ -11,7 +11,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
- 
+#include <stdbool.h>
 #define MIDA_BUFFER 1024
  
 int main(int argc, char **argv){
