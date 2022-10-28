@@ -28,7 +28,13 @@
 
 #define MIDA_BUFFER 1024 
 
- 
+ void neteja_taula(char array[]){
+  int i=0;
+  for(i=0;i<strlen(array);i++)
+  {
+      array[i] = 0;
+  }
+}
 
 int main( ){ 
 
@@ -123,7 +129,8 @@ int main( ){
  
 
       printf("Paquet enviat!\n"); 
-
+      neteja_taula(buffer2):
+      neteja_taula(buffer):
     } 
 
   } 
