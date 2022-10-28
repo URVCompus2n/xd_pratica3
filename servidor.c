@@ -100,10 +100,10 @@ int main( ){
     int i = 0;
     int prim = 0;
     int segon = 0;
-    sscanf(buffer,"%d %d",prim,segon);
+    sscanf(buffer,"%d %d",&prim,&segon);
 
       int resposta = -1; //resultat a retornar 
-        printf("%d %d",&prim,&segon);
+        printf("%d %d",prim,segon);
       if(prim>=0&&prim<=99&&segon>=0&&segon<=99){ 
 
         resposta = prim*segon; //fem el producte dels nombres si estan al rang indicat 
