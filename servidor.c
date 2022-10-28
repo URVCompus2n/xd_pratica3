@@ -96,7 +96,7 @@ int main( ){
 
       recvfrom(s, buffer, MIDA_BUFFER, 0, (struct sockaddr*)&client_adr, &mida); 
 
-      printf("Paquet rebut!\n"); 
+      printf("Paquet rebut %s!\n",buffer); 
     int i = 0;
     int prim = 0;
     int segon = 0;
@@ -118,7 +118,7 @@ int main( ){
     }
 
       int resposta = -1; //resultat a retornar 
-        
+
       if(prim>=0&&prim<=99&&segon>=0&&segon<=99){ 
 
         resposta = prim*segon; //fem el producte dels nombres si estan al rang indicat 
