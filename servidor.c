@@ -129,8 +129,8 @@ int main( ){
  
 
       printf("Paquet enviat!\n"); 
-      neteja_taula(buffer2):
-      neteja_taula(buffer):
+      neteja_taula(buffer2);
+      neteja_taula(buffer);
     } 
 
   } 
