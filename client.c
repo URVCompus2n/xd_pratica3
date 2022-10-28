@@ -105,6 +105,7 @@ int main(int argc, char **argv){
       ko++;
     }
     memset(buffer,0,sizeof(buffer));
+    memset(buffer2,0,sizeof(buffer2));
   }
 
   
