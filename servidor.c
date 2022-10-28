@@ -46,7 +46,6 @@ int main( ){
 
   char buffer[MIDA_BUFFER]; 
 
-  char buffer2[MIDA_BUFFER]; 
 
   socklen_t mida; 
 
@@ -107,7 +106,7 @@ int main( ){
     int prim = 0;
     int segon = 0;
     sscanf(buffer,"%d %d",&prim,&segon);
-
+     neteja_taula(buffer);
       int resposta = -1; //resultat a retornar 
         printf("%d %d",prim,segon);
       if(prim>=0&&prim<=99&&segon>=0&&segon<=99){ 
@@ -116,20 +115,20 @@ int main( ){
 
       } 
 
-      sprintf(buffer2,"%d",resposta); // convertim el nostre valor enter a una taula de caràcters 
+      sprintf(buffer,"%d",resposta); // convertim el nostre valor enter a una taula de caràcters 
 
-      printf("Valor retornat: %d\n",resposta); 
+      
 
  
 
-      printf("Buffer enviat: %s\n",buffer2); 
+      printf("Buffer enviat: %s\n",buffer); 
 
-      sendto(s, buffer2, strlen(buffer2), 0, (struct sockaddr*)&client_adr, sizeof(client_adr)); 
+      sendto(s, buffer, strlen(buffer), 0, (struct sockaddr*)&client_adr, sizeof(client_adr)); 
 
  
 
       printf("Paquet enviat!\n"); 
-      neteja_taula(buffer2);
+     
       neteja_taula(buffer);
     } 
 
