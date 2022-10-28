@@ -28,7 +28,7 @@ int main( ){
  
     /* Posem les dades del socket */
     serv_adr.sin_family = AF_INET;
-    serv_adr.sin_addr.s_addr = inet_addr("10.112.201.2");
+    serv_adr.sin_addr.s_addr = INADDR_ANY;
     serv_adr.sin_port =  htons(44444);
  
     /* Enllacem el socket */
