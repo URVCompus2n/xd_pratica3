@@ -118,7 +118,7 @@ int main( ){
     }
 
       int resposta = -1; //resultat a retornar 
-
+        printf("%d %d",prim,segon);
       if(prim>=0&&prim<=99&&segon>=0&&segon<=99){ 
 
         resposta = prim*segon; //fem el producte dels nombres si estan al rang indicat 
