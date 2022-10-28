@@ -110,6 +110,7 @@ int main( ){
             }
             separacio = i;
         }
+        i++;
     }
     for(int j = i-1; j > separacio; j--){
                 segon += (buffer[j]-'0')*pow(10,i-j-1);
