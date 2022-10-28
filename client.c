@@ -83,7 +83,7 @@ int main(int argc, char **argv){
 
   adr.sin_addr.s_addr = inet_addr(argv[1]); 
 
- printf("Inici del joc de proves de la part 3 de la pràctica de xarxes");
+  printf("Inici del joc de proves de la part 3 de la pràctica de xarxes\n");
   for(int i = 0; i < NUM_TESTS; i++){
     num1 = test[i].num1; //el primer numero
     num2 = test[i].num2; //el segon numero 
@@ -104,6 +104,7 @@ int main(int argc, char **argv){
     }else{
       ko++;
     }
+    memset(buffer,'\0',strlen(buffer));
   }
 
   
