@@ -104,7 +104,7 @@ int main(int argc, char **argv){
     }else{
       ko++;
     }
-    memset(buffer,'\0',sizeof(buffer));
+    memset(buffer,0,sizeof(buffer));
   }
 
   
