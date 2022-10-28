@@ -62,8 +62,6 @@ int main( ){
 
   serv_adr.sin_port = htons(44444); 
 
- printf("%d",INADDR_ANY);
-
   /* Enllacem el socket */ 
 
   n = bind(s, (struct sockaddr*)&serv_adr, sizeof(serv_adr)); 
