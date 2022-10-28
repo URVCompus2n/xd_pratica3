@@ -30,7 +30,7 @@
 
  void neteja_taula(char array[]){
   int i=0;
-  for(i=0;i<strlen(array);i++)
+  for(i=0;i<sizeof(array);i++)
   {
       array[i] = 0;
   }
