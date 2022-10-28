@@ -27,8 +27,12 @@
  
 
 #define MIDA_BUFFER 1024 
-
- 
+#define NUM_TESTS 6
+typedef struct{
+  int num1;
+  int num2;
+  int resposta;
+}test_t;
 
 int main(int argc, char **argv){ 
 
@@ -44,7 +48,9 @@ int main(int argc, char **argv){
 
   } 
 
- 
+  /*Inicialitzem testos*/
+  test_t test[]={{10,10,100},{-1,90,-1},{90,-1,-1},{500,500,-1},{4,5,20},{255,-255,-1}};
+ /*Fi testos*/
 
   int s;  /* Per treballar amb el socket */ 
 
@@ -56,8 +62,9 @@ int main(int argc, char **argv){
 
   socklen_t mida; 
 
-  int i, num1,num2; 
-
+  int i, num1,num2, resposta; 
+  int ok=0;
+  int ko=0;
  
 
   /* Volem socket d'internet i no orientat a la connexio */ 
@@ -76,41 +83,32 @@ int main(int argc, char **argv){
 
   adr.sin_addr.s_addr = inet_addr(argv[1]); 
 
- 
+ printf("Inici del joc de proves de la part 3 de la pràctica de xarxes");
+  for(int i = 0; i < NUM_TESTS; i++){
+    num1 = test[i].num1; //el primer numero
+    num2 = test[i].num2; //el segon numero 
+    char aux[5];
+    sprintf(aux,"%d",num1); // convertim el nostre valor enter a una taula de caràcters ; //codifiquem el primer número 
+    sprintf(buffer,"%s %d",aux,num2); // Afegim un espai i el segon numero
 
-  printf("escriu un numero: \n"); //demanem un número a l'usuari 
+    //Enviem el paquet 
 
-  scanf("%d", &num1); 
+    sendto(s, buffer, strlen(buffer), 0, (struct sockaddr*)&adr, sizeof(adr)); 
+    //Esperem la resporta del servidor 
 
- 
+    recvfrom(s, buffer2, MIDA_BUFFER, 0,(struct sockaddr*)&adr, &mida); 
 
-  printf("escriu el segon numero: \n"); //demanem un segon número a l'usuari 
+     sscanf(buffer2,"%d",&resposta);
+    if(resposta==test[i].resposta){
+      ok++;
+    }else{
+      ko++;
+    }
+  }
 
-  scanf("%d", &num2); 
-
- 
-
- char aux[5];
-
-  sprintf(aux,"%d",num1); // convertim el nostre valor enter a una taula de caràcters ; //codifiquem el primer número 
-
- sprintf(buffer,"%s %d",aux,num2); // Afegim un espai i el segon numero
-
-  //Enviem el paquet 
-
-  sendto(s, buffer, strlen(buffer), 0, (struct sockaddr*)&adr, sizeof(adr)); 
-
- 
-
-  printf("Paquet enviat!\n"); 
-
-  //Esperem la resporta del servidor 
-
-  recvfrom(s, buffer2, MIDA_BUFFER, 0,(struct sockaddr*)&adr, &mida); 
-
-  printf("Resposta: %s", buffer2); //printejem la resposta 
-
- 
+  
+  printf("Resultat del joc de proves\n\tOK = %d\n\tKO = %d\n\tTests %d\n",ok,ko,NUM_TESTS);
+  
 
   /* Tanquem el socket */ 
 
