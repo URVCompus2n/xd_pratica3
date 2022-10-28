@@ -64,7 +64,6 @@ int main(int argc, char **argv){
 
   char buffer[MIDA_BUFFER]; 
 
-  char buffer2[MIDA_BUFFER]; 
 
   socklen_t mida; 
 
@@ -101,17 +100,17 @@ int main(int argc, char **argv){
  
     sendto(s, buffer, strlen(buffer), 0, (struct sockaddr*)&adr, sizeof(adr)); 
     //Esperem la resporta del servidor 
+    neteja_taula(buffer);
+    recvfrom(s, buffer, MIDA_BUFFER, 0,(struct sockaddr*)&adr, &mida); 
 
-    recvfrom(s, buffer2, MIDA_BUFFER, 0,(struct sockaddr*)&adr, &mida); 
-
-     sscanf(buffer2,"%d",&resposta);
+     sscanf(buffer,"%d",&resposta);
     if(resposta==test[i].resposta){
       ok++;
     }else{
       ko++;
     }
     neteja_taula(buffer);
-    neteja_taula(buffer2);
+    
     
   }
 
