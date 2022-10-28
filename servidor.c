@@ -24,7 +24,7 @@
 
 #include <unistd.h> 
 
- 
+ #include <math.h>
 
 #define MIDA_BUFFER 1024 
 
@@ -97,12 +97,23 @@ int main( ){
       recvfrom(s, buffer, MIDA_BUFFER, 0, (struct sockaddr*)&client_adr, &mida); 
 
       printf("Paquet rebut!\n"); 
-
- 
-
-      int prim = (int) buffer[0]-'0'; //el primer número 
-
-      int segon = (int) buffer[2]-'0'; //deixem un espai i el següent número 
+    int i = 0;
+    int prim = 0;
+    int segon = 0;
+    int separacio = 0;
+    while (buffer[i]!='\0')
+    {
+        if(prim!=0 && buffer[i] == ' '){
+            int desfase = i;
+            for(int j = i-1; j > 0; j--){
+                prim += (buffer[j]-'0')*pow(10,i-j-1);
+            }
+            separacio = i;
+        }
+    }
+    for(int j = i-1; j > separacio; j--){
+                segon += (buffer[j]-'0')*pow(10,i-j-1);
+    }
 
       int resposta = -1; //resultat a retornar 
 

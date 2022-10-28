@@ -92,11 +92,9 @@ int main(int argc, char **argv){
 
  
 
-  buffer[0] = num1 + '0'; //codifiquem el primer número 
+  sprintf(buffer2,"%d",num1); // convertim el nostre valor enter a una taula de caràcters ; //codifiquem el primer número 
 
-  buffer[1] = ' '; 
-
-  buffer[2] = num2 + '0'; //codifiquem el segon número 
+ sprintf(buffer2,"%s %d",buffer2,num2); // Afegim un espai i el segon numero
 
   //Enviem el paquet 
 
